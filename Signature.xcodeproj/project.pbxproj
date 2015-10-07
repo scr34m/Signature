@@ -8,19 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		619F5EDA1BC412FC004AB3F8 /* ComposeViewController+SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F5ED91BC412FC004AB3F8 /* ComposeViewController+SignaturePlugin.m */; settings = {ASSET_TAGS = (); }; };
-		619F65C81BC51C3D004AB3F8 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 619F65C71BC51C3D004AB3F8 /* README */; settings = {ASSET_TAGS = (); }; };
 		61A503351BC4033800231931 /* SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A503341BC4033800231931 /* SignaturePlugin.m */; settings = {ASSET_TAGS = (); }; };
-		61A503381BC4043500231931 /* Signature.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A5032A1BC4005E00231931 /* Signature.mailbundle */; };
+		61A7013E1BC583C100CDFC55 /* ComposeViewController+SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F5ED91BC412FC004AB3F8 /* ComposeViewController+SignaturePlugin.m */; settings = {ASSET_TAGS = (); }; };
+		61A7013F1BC583C100CDFC55 /* SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A503341BC4033800231931 /* SignaturePlugin.m */; settings = {ASSET_TAGS = (); }; };
+		61A7014D1BC5846E00CDFC55 /* Signature.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A701481BC583C100CDFC55 /* Signature.mailbundle */; };
+		61A7014F1BC5876700CDFC55 /* SignatureDebug.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		61A503371BC4041000231931 /* Local Deploy */ = {
+		61A701431BC583C100CDFC55 /* Local Deploy */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Library/Mail/Bundles;
+			dstSubfolderSpec = 0;
+			files = (
+				61A7014D1BC5846E00CDFC55 /* Signature.mailbundle in Local Deploy */,
+			);
+			name = "Local Deploy";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A7014E1BC5875000CDFC55 /* Local Deploy */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "~/Library/Mail/Bundles";
 			dstSubfolderSpec = 0;
 			files = (
-				61A503381BC4043500231931 /* Signature.mailbundle in Local Deploy */,
+				61A7014F1BC5876700CDFC55 /* SignatureDebug.mailbundle in Local Deploy */,
 			);
 			name = "Local Deploy";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1198,16 +1211,23 @@
 		619F65C41BC4F4EE004AB3F8 /* WKBrowsingContextLoadDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKBrowsingContextLoadDelegate-Protocol.h"; sourceTree = "<group>"; };
 		619F65C51BC4F4EE004AB3F8 /* WKConnectionDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKConnectionDelegate-Protocol.h"; sourceTree = "<group>"; };
 		619F65C61BC4F4EE004AB3F8 /* WKProcessGroupDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKProcessGroupDelegate-Protocol.h"; sourceTree = "<group>"; };
-		619F65C71BC51C3D004AB3F8 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		61A5032A1BC4005E00231931 /* Signature.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Signature.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignatureDebug.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A5032D1BC4005E00231931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61A503331BC4033800231931 /* SignaturePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignaturePlugin.h; sourceTree = "<group>"; };
 		61A503341BC4033800231931 /* SignaturePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignaturePlugin.m; sourceTree = "<group>"; };
 		61A503361BC4039300231931 /* find_uuid.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = find_uuid.sh; sourceTree = "<group>"; };
+		61A701481BC583C100CDFC55 /* Signature.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Signature.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		61A503271BC4005E00231931 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A701401BC583C100CDFC55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2442,7 +2462,6 @@
 		61A503211BC4005D00231931 = {
 			isa = PBXGroup;
 			children = (
-				619F65C71BC51C3D004AB3F8 /* README */,
 				619F61301BC4F451004AB3F8 /* create_mail_headers.sh */,
 				61A503361BC4039300231931 /* find_uuid.sh */,
 				619F61311BC4F4EB004AB3F8 /* MailHeaders */,
@@ -2454,7 +2473,8 @@
 		61A5032B1BC4005E00231931 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61A5032A1BC4005E00231931 /* Signature.mailbundle */,
+				61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */,
+				61A701481BC583C100CDFC55 /* Signature.mailbundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2474,14 +2494,32 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		61A503291BC4005E00231931 /* Signature */ = {
+		61A503291BC4005E00231931 /* SignatureDebug */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61A503301BC4005E00231931 /* Build configuration list for PBXNativeTarget "Signature" */;
+			buildConfigurationList = 61A503301BC4005E00231931 /* Build configuration list for PBXNativeTarget "SignatureDebug" */;
 			buildPhases = (
 				61A503261BC4005E00231931 /* Sources */,
 				61A503271BC4005E00231931 /* Frameworks */,
 				61A503281BC4005E00231931 /* Resources */,
-				61A503371BC4041000231931 /* Local Deploy */,
+				61A7014E1BC5875000CDFC55 /* Local Deploy */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SignatureDebug;
+			productName = Signature;
+			productReference = 61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		61A7013C1BC583C100CDFC55 /* Signature */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61A701451BC583C100CDFC55 /* Build configuration list for PBXNativeTarget "Signature" */;
+			buildPhases = (
+				61A7013D1BC583C100CDFC55 /* Sources */,
+				61A701401BC583C100CDFC55 /* Frameworks */,
+				61A701411BC583C100CDFC55 /* Resources */,
+				61A701431BC583C100CDFC55 /* Local Deploy */,
 			);
 			buildRules = (
 			);
@@ -2489,7 +2527,7 @@
 			);
 			name = Signature;
 			productName = Signature;
-			productReference = 61A5032A1BC4005E00231931 /* Signature.mailbundle */;
+			productReference = 61A701481BC583C100CDFC55 /* Signature.mailbundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -2518,7 +2556,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				61A503291BC4005E00231931 /* Signature */,
+				61A7013C1BC583C100CDFC55 /* Signature */,
+				61A503291BC4005E00231931 /* SignatureDebug */,
 			);
 		};
 /* End PBXProject section */
@@ -2528,7 +2567,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				619F65C81BC51C3D004AB3F8 /* README in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A701411BC583C100CDFC55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2541,6 +2586,15 @@
 			files = (
 				619F5EDA1BC412FC004AB3F8 /* ComposeViewController+SignaturePlugin.m in Sources */,
 				61A503351BC4033800231931 /* SignaturePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A7013D1BC583C100CDFC55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A7013E1BC583C100CDFC55 /* ComposeViewController+SignaturePlugin.m in Sources */,
+				61A7013F1BC583C100CDFC55 /* SignaturePlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2650,6 +2704,32 @@
 			};
 			name = Release;
 		};
+		61A701461BC583C100CDFC55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Signature/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.deeb.Signature;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mailbundle;
+			};
+			name = Debug;
+		};
+		61A701471BC583C100CDFC55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Signature/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.deeb.Signature;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mailbundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2662,11 +2742,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61A503301BC4005E00231931 /* Build configuration list for PBXNativeTarget "Signature" */ = {
+		61A503301BC4005E00231931 /* Build configuration list for PBXNativeTarget "SignatureDebug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61A503311BC4005E00231931 /* Debug */,
 				61A503321BC4005E00231931 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61A701451BC583C100CDFC55 /* Build configuration list for PBXNativeTarget "Signature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A701461BC583C100CDFC55 /* Debug */,
+				61A701471BC583C100CDFC55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
