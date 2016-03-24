@@ -22,6 +22,15 @@
     NSLog(@"SampleMailPlugin successfully Loaded");
 }
 
+// extract e-mail address from RFC822 email address format ex.: Jon Doe <jon@example.com>
++ (NSString *) extractEmailAddress: (NSString *)address
+{
+    NSRange r = [address rangeOfString:@"<" options:NSBackwardsSearch];
+    NSString *senderEmail = [address substringFromIndex:r.location + 1];
+    r = [senderEmail rangeOfString:@">" options:NSBackwardsSearch];
+    return [senderEmail substringToIndex:r.location];
+}
+
 // NSStringFromSelector(@"doWork")
 IMP swizzle(NSString *srcn, NSString *dstn, SEL sel_old, SEL sel_new)
 {

@@ -18,7 +18,5 @@
 
 @interface ComposeViewController : NSObject
 @property(retain, nonatomic) ComposeBackEnd *backEnd;
-
-- (id)deliveryAccount;
 - (void) orig_backEndSenderDidChange:(id)arg1;
 @end

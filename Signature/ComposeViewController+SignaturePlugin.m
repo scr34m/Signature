@@ -8,25 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import "SignaturePlugin.h"
 #import "ComposeViewController+SignaturePlugin.h"
 #import "../MailHeaders/Al_Capitan/MailUI/SignatureBundle.h"
 
-@implementation ComposeViewController_SignaturePlugin : NSObject
+@implementation ComposeViewController_SignaturePlugin
 
 + (void) backEndSenderDidChange:(id)sender {
     ComposeViewController *editor = (ComposeViewController *)self;
 
     [editor orig_backEndSenderDidChange:(id)sender];
 
-    // extract e-mail address from RFC822 email address format ex.: Jon Doe <jon@examile.com>
-    NSRange r = [editor.backEnd.sender rangeOfString:@"<" options:NSBackwardsSearch];
-    NSString *senderEmail = [editor.backEnd.sender substringFromIndex:r.location + 1];
-    r = [senderEmail rangeOfString:@">" options:NSBackwardsSearch];
-    senderEmail = [senderEmail substringToIndex:r.location];
+    NSString *senderEmail = [SignaturePlugin extractEmailAddress:editor.backEnd.sender];
+#ifdef DEBUG
+    NSLog(@"senderEmail: %@", senderEmail);
+#endif
     
-//    NSString *senderEmail = [self extractEmailAddress:editor.backEnd.sender];
-
-    NSInteger signatureIndex = -1;
     id signatureBundle = [[NSClassFromString(@"SignatureBundle") alloc] init];
     NSArray *signs = [signatureBundle signaturesForAccount:editor.backEnd.account];
     if ([signs count] > 0)
@@ -34,25 +31,21 @@
        for (int sc = 0; sc<[signs count]; sc++)
        {
            Signature *s = [signs objectAtIndex:sc];
+#ifdef DEBUG
+           NSLog(@"%i: %@ %@", (int)sc, s.uniqueId, s.signatureName);
+#endif
            // signature name is equal the sender e-mail then we found proper signature
            if ([s.signatureName isEqualToString:senderEmail]) {
-               signatureIndex = sc;
+#ifdef DEBUG
+               NSLog(@"setMessageSignature: %@", s.uniqueId);
+#endif
+               // if signature found then switch to it
+               [editor.backEnd setMessageSignature:s];
                break;
            }
        }
     }
-
-    // if signature found then switch to it
-    if (signatureIndex != - 1) {
-        [editor.backEnd setMessageSignature:(id)[signs objectAtIndex:signatureIndex]];
-    }
-}
-
-+ (NSString *) extractEmailAddress:(NSString *)address {
-    NSRange r = [address rangeOfString:@"<" options:NSBackwardsSearch];
-    NSString *senderEmail = [address substringFromIndex:r.location + 1];
-    r = [senderEmail rangeOfString:@">" options:NSBackwardsSearch];
-    return [senderEmail substringToIndex:r.location];
+    
 }
 
 @end

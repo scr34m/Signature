@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface SignaturePlugin : NSObject
-
++ (NSString *) extractEmailAddress:(NSString *)address;
 @end
