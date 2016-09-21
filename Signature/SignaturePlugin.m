@@ -9,17 +9,48 @@
 #import <AppKit/AppKit.h>
 #import <objc/objc-runtime.h>
 #import "SignaturePlugin.h"
-#import "ComposeViewController+SignaturePlugin.h"
+#import "CodeInjector.h"
+#import "MVMailBundle.h"
+
+int LoggingLevel = 0;
 
 @implementation SignaturePlugin
 
 + (void)initialize {
-    
-    if (!swizzle(@"ComposeViewController", @"ComposeViewController_SignaturePlugin", @selector(backEndSenderDidChange:), @selector(orig_backEndSenderDidChange:))) {
+    // Make sure the initializer is only run once.
+    // Usually is run, for every class inheriting from
+    // GPGMailBundle.
+    if(self != [SignaturePlugin class])
         return;
-    }
+    
+    Class mvMailBundleClass = NSClassFromString(@"MVMailBundle");
+    // If this class is not available that means Mail.app
+    // doesn't allow plugins anymore. Fingers crossed that this
+    // never happens!
+    if(!mvMailBundleClass)
+        return;
+    
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated"
+    class_setSuperclass([self class], mvMailBundleClass);
+#pragma GCC diagnostic pop
+    
+    // Initialize the bundle by swizzling methods, loading keys, ...
+    SignaturePlugin *instance = [SignaturePlugin sharedInstance];
+    
+    [[((MVMailBundle *)self) class] registerBundle];             // To force registering composeAccessoryView and preferences
+}
 
-    NSLog(@"SampleMailPlugin successfully Loaded");
+- (NSString *)version {
+    return @"0.2";
+}
+
+- (id)init {
+    if (self = [super init]) {
+        NSLog(@"Loaded SignaturePlugin %@", [self version]);
+        [CodeInjector injectUsingMethodPrefix:@"SP"];
+    }
+    return self;
 }
 
 // extract e-mail address from RFC822 email address format ex.: Jon Doe <jon@example.com>
@@ -31,43 +62,5 @@
     return [senderEmail substringToIndex:r.location];
 }
 
-// NSStringFromSelector(@"doWork")
-IMP swizzle(NSString *srcn, NSString *dstn, SEL sel_old, SEL sel_new)
-{
-    Class src = NSClassFromString(srcn);
-    if(!src) {
-        NSLog(@"Mail.app does not have a %@ class available", srcn);
-        return NULL;
-    }
-    
-    Class dst = NSClassFromString(dstn);
-    if(!dst) {
-        NSLog(@"Plugin does not have a %@ class available", dstn);
-        return  NULL;
-    }
-    
-    Method new_send = class_getClassMethod(dst, sel_old);
-    if (!new_send) {
-        NSLog(@"Could not find selector in class %@", dstn);
-        return NULL;
-    }
-    
-    Method old_send = class_getInstanceMethod(src, sel_old);
-    if (!old_send) {
-        NSLog(@"Could not find selector in class %@", srcn);
-        return NULL;
-    }
-    
-    class_addMethod(src, sel_old, method_getImplementation(old_send), method_getTypeEncoding(old_send));
-    class_addMethod(src, sel_new, method_getImplementation(old_send), method_getTypeEncoding(old_send));
-    
-    old_send = class_getInstanceMethod(src, sel_old);
-    if (!old_send) {
-        NSLog(@"Could not find relplaced selector again");
-        return NULL;
-    }
-    
-    return method_setImplementation(old_send, method_getImplementation(new_send));
-}
 
 @end

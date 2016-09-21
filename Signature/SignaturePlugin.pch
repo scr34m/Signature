@@ -1,0 +1,9 @@
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#import <AddressBook/AddressBook.h>
+#import <WebKit/WebKit.h>
+#endif
+
+extern int  LoggingLevel;
+
+#define DebugLog(...) if (LoggingLevel) {CCLog(__VA_ARGS__);}

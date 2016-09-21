@@ -29,6 +29,10 @@
 		<string>DAF41AB7-F9AD-4273-9934-C81C74705B69</string>
 		<string>1550C683-EA48-4036-B7CE-FB6F5D13EE02</string>
 	</array>
+	<key>Supported10.12PluginCompatibilityUUIDs</key>
+	<array>
+		<string>36CCB8BB-2207-455E-89BC-B9D6E47ABB5B</string>
+	</array>
 	<key>NSPrincipalClass</key>
 	<string>SignaturePlugin</string>
 </dict>

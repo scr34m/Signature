@@ -11,3 +11,7 @@
 @interface SignaturePlugin : NSObject
 + (NSString *) extractEmailAddress:(NSString *)address;
 @end
+
+@interface SignaturePlugin (NoImplementation)
++ (id)sharedInstance;
+@end
