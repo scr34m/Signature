@@ -22,7 +22,7 @@
 #endif
 
     HeadersEditor *editor = (HeadersEditor *)self;
-/data/osx/Signature/MailHeaders/Al_Capitan/MailUI/MTMScroller.h
+
     NSArray<NSMenuItem *> *items = [editor.signaturePopup itemArray];
     for (int i = 0; i<[items count]; i++)
     {
