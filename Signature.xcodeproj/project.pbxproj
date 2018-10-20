@@ -17,32 +17,32 @@
 		6124B6EA1D92B16B00F202BA /* HeadersEditor+SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6124B6E81D92AF7900F202BA /* HeadersEditor+SignaturePlugin.m */; };
 		61A503351BC4033800231931 /* SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A503341BC4033800231931 /* SignaturePlugin.m */; };
 		61A7013F1BC583C100CDFC55 /* SignaturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A503341BC4033800231931 /* SignaturePlugin.m */; };
-		61A7014D1BC5846E00CDFC55 /* Signature.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A701481BC583C100CDFC55 /* Signature.mailbundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		61A7014F1BC5876700CDFC55 /* SignatureDebug.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		61EE4300217B958500E58C67 /* Signature.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A701481BC583C100CDFC55 /* Signature.mailbundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		61EE4301217B959300E58C67 /* SignatureDebug.mailbundle in Local Deploy */ = {isa = PBXBuildFile; fileRef = 61A5032A1BC4005E00231931 /* SignatureDebug.mailbundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		61A701431BC583C100CDFC55 /* Local Deploy */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = /Library/Mail/Bundles;
 			dstSubfolderSpec = 0;
 			files = (
-				61A7014D1BC5846E00CDFC55 /* Signature.mailbundle in Local Deploy */,
+				61EE4300217B958500E58C67 /* Signature.mailbundle in Local Deploy */,
 			);
 			name = "Local Deploy";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		61A7014E1BC5875000CDFC55 /* Local Deploy */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "~/Library/Mail/Bundles";
+			buildActionMask = 8;
+			dstPath = /Library/Mail/Bundles;
 			dstSubfolderSpec = 0;
 			files = (
-				61A7014F1BC5876700CDFC55 /* SignatureDebug.mailbundle in Local Deploy */,
+				61EE4301217B959300E58C67 /* SignatureDebug.mailbundle in Local Deploy */,
 			);
 			name = "Local Deploy";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
