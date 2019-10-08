@@ -8,9 +8,9 @@
 
 #import "SignaturePlugin.h"
 #import "HeadersEditor+SignaturePlugin.h"
-#import <MFSignature.h>
-#import <MFSignatureManager.h>
-#import <HeadersEditor.h>
+#import "MFSignature.h"
+#import "MFSignatureManager.h"
+#import "HeadersEditor.h"
 
 @implementation HeadersEditor_SignaturePlugin
 - (void)SP_updateSenderDomainAndAddressWithSender:(NSString *)address accountIdentifier:(NSString *)accountId{
