@@ -10,7 +10,7 @@ Install
 
 1. To allow bundle plugins in Mail.app type in terminal: <pre>defaults write com.apple.mail EnableBundles -bool true</pre>
 
-2. Download latest build from the [Release page](https://github.com/scr34n/Signature/releases)
+2. Download latest build from the [Release page](https://github.com/scr34m/Signature/releases)
 
 3. Enabling Signature plugin in Mail.app
    - Go to "Mail > Preferences > General"
