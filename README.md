@@ -3,14 +3,14 @@ Signature
 
 When you have multiple e-mail addresses in a single mail account in Mail.app then you need to change signatures manually. Signature plugin helps you in selecting the right signature automatically based on the sender's e-mail address.
 
-Latest supported version is macOS Catalina Mail 13.0 (3594.4.19)
+Latest supported version is macOS Catalina Mail 13.4 (3608.80.23.2.2)
 
 Install
 -------
 
 1. To allow bundle plugins in Mail.app type in terminal: <pre>defaults write com.apple.mail EnableBundles -bool true</pre>
 
-2. Download https://www.dropbox.com/s/enaljrbi309ahti/Signature-1.6.pkg?dl=0
+2. Download latest build from the [Release page](https://github.com/scr34n/Signature/releases)
 
 3. Enabling Signature plugin in Mail.app
    - Go to "Mail > Preferences > General"
