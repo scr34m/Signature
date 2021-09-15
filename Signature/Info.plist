@@ -22,7 +22,7 @@
 	<string>1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015. Gyorvari Gabor. All rights reserved.</string>
-	<key>Supported11.5PluginCompatibilityUUIDs</key>
+	<key>Supported11.6PluginCompatibilityUUIDs</key>
 	<array>
 		<string>D985F0E4-3BBC-4B95-BBA1-12056AC4A531</string>
 	</array>
