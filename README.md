@@ -3,7 +3,7 @@ Signature
 
 When you have multiple e-mail addresses in a single mail account in Mail.app then you need to change signatures manually. Signature plugin helps you in selecting the right signature automatically based on the sender's e-mail address.
 
-Latest supported version is macOS Monterey (12.1) Mail 15.0 (3693.40.0.1.81)
+Latest supported version is macOS Monterey (12.2) Mail 15.0 (3693.60.0.1.1)
 
 Install
 -------
